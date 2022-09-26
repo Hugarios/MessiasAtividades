@@ -1,7 +1,4 @@
 #1 exercício#
-from curses import A_NORMAL
-
-
 macas = int(input('Quantas maçãs foram compradas?: '))
 if macas < 12:
     print('O valor a ser pago é de R${:.2f}'.format(macas * 1.3))
