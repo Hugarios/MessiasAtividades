@@ -1,1 +1,20 @@
-dasdad
+#1 exercício#
+from curses import A_NORMAL
+
+
+macas = int(input('Quantas maçãs foram compradas?: '))
+if macas < 12:
+    print('O valor a ser pago é de R${:.2f}'.format(macas * 1.3))
+else:
+    print('O valor a ser pago é de R${:.2f}'.format(macas))
+
+print('='*40)
+
+#2 exercício#
+anoa = int(input('Informe o ano atual: '))
+anon = int(input('Informe seu ano de nascinemto: '))
+idade = anoa - anon
+if idade < 16:
+    print('Você ainda não pode votar.')
+else:
+    print('Você já pode votar.')
