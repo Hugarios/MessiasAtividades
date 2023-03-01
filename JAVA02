@@ -1,0 +1,19 @@
+import javax.swing.*;
+import java.util.Scanner;
+
+public class TestadoraScanner {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Digite o seu nome abaixo: ");
+        String nome = sc.nextLine();
+        System.out.println("Seu nome é " + nome);
+        System.out.println("Digite a sua idade abaixo: ");
+        int idade = sc.nextInt();
+        System.out.println("E sua idade é " + idade + " anos");
+
+        // Java Swing
+        String nome2 = JOptionPane.showInputDialog(null, "Digite o seu nome: ");
+        JOptionPane.showMessageDialog(null, nome2);
+    }
+}
