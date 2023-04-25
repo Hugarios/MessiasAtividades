@@ -1,0 +1,90 @@
+public class Video {
+    private String titulo;
+    private String diretor;
+    private List<String> elenco;
+    private String genero;
+    private String sinopse;
+    private int anoLancamento;
+    private String classificacaoIndicativa;    
+}
+
+public class Filme extends Video {
+}
+
+public class Serie extends Video {
+}
+
+public class Usuario {
+    private String nome;
+    private String email;
+    private String senha;
+    private List<Video> favoritos;    
+}
+
+public class Acesso {
+    private Usuario usuario;
+    private Video video;
+    private Date dataAcesso;    
+}
+
+public class ServicoStreaming {
+    private List<Video> videosDisponiveis;
+    private List<Usuario> usuariosCadastrados;
+    private List<Acesso> acessosRegistrados;
+    
+    public boolean verificarDisponibilidade(Video video) {
+        return videosDisponiveis.contains(video);
+    }
+    
+    public boolean registrarAcesso(Usuario usuario, Video video, Date data) {
+        if (!verificarDisponibilidade(video)) {
+            return false;
+        }
+        ValidadorClassificacao validador = new ValidadorClassificacao();
+        if (!validador.validarClassificacao(usuario, video.getClassificacaoIndicativa())) {
+            return false;
+        }
+        acessosRegistrados.add(new Acesso(usuario, video, data));
+        return true;
+    }    
+}
+
+public class ValidadorClassificacao {
+    public boolean validarClassificacao(Usuario usuario, String classificacaoIndicativa) {
+    }
+}
+
+public class Favoritos {
+    private List<Video> lista;
+    
+    public void adicionar(Video video) {
+        lista.add(video);
+    }
+    
+    public void remover(Video video) {
+        lista.remove(video);
+    }
+}
+
+public class ItemPlaylist {
+    private String titulo;
+    private String diretor;
+    private List<String> elenco;
+    private String genero;
+    private String sinopse;
+}
+
+public class Playlist {
+    private List<ItemPlaylist> itens;
+    
+    public void adicionar(ItemPlaylist item) {
+        itens.add(item);
+    }
+    
+    public void remover(ItemPlaylist item) {
+        itens.remove(item);
+    }
+    
+    public void reproduzir() {
+    }
+}
